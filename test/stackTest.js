@@ -1,5 +1,5 @@
 let assert = require ("assert");
-let Stack = require("./../dataStructures/stack");
+let Stack = require("./../dataStructures/stack.js");
 
 describe("Stack", function(){
     describe("isEmpty", function() {

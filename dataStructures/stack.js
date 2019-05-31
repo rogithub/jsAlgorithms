@@ -1,3 +1,5 @@
+"use strict";
+
 let Stack = function() {
     let items = [];
     this.push = function (element){

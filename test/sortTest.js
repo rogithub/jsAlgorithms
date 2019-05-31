@@ -1,7 +1,7 @@
 let assert = require ("assert");
-let ArrayList = require("./../dataStructures/arrayList");
+let ArrayList = require("./../dataStructures/arrayList.js");
 
-describe("ArrayList", function(){
+describe("ArrayList", function() {
     describe("isEmpty", function() {
 	it("Should be true when created", function(){
 	    let arr = new ArrayList();
