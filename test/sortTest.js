@@ -1,5 +1,5 @@
 let assert = require ("assert");
-let ArrayList = require("./../arrayList");
+let ArrayList = require("./../dataStructures/arrayList");
 
 describe("ArrayList", function(){
     describe("isEmpty", function() {
