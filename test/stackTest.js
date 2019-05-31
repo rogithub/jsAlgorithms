@@ -1,3 +1,5 @@
+"use strict";
+
 let assert = require ("assert");
 let Stack = require("./../dataStructures/stack.js");
 

@@ -1,3 +1,5 @@
+"use strict";
+
 let assert = require ("assert");
 let id = require("./../functional/identity.js");
 

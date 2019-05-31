@@ -1,3 +1,4 @@
+"use strict";
 let assert = require ("assert");
 let ArrayList = require("./../dataStructures/arrayList.js");
 
