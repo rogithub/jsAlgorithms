@@ -1,16 +1,15 @@
 "use strict";
 
-// Xn+1 = (A × Xn + B) Mod M
+// SEEDn+1 = (A × SEEDn + B) Mod M
 // A, B, and M are constants.
 // pseudo random "linear congruential generator"
-module.exports = (a, b, m) => {
-    let arr = [];
+module.exports = function* gen(a, b, m) {
     let seed = 0;
-    for (let i = 0; i < 11; i++) {
-	arr.push(seed);
+    yield seed;
+    while(true) {
 	seed = (( a * seed + b) % m);
-    }
-    return arr;
+	yield seed;
+    }    
 };
 
 
