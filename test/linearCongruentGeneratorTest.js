@@ -30,12 +30,10 @@ describe("Linear Congruential Generator", function(){
 	it("Should return a pseudo random array of values", function(){
 	    let expected = [ 0, 5, 7, 10, 9, 2, 8, 6, 3, 4, 0 ];
 	    let gen = linConGen(7, 5, 11);
-	    let actual = [];
-	    for (let i = 0; i < expected.length; i++) {
-		actual.push(gen.next().value);
-	    }
 	    
-	    assert.deepEqual(actual, expected);
+	    for (let i = 0; i < expected.length; i++) {
+		assert.equal(gen.next().value, expected[i])
+	    }
 	});
     });
 });
