@@ -1,7 +1,7 @@
 "use strict";
 
 let assert = require ("assert");
-let linConGen = require("./../algo/congruentialGen.js");
+let linConGen = require("./../algo/linearCongruentialGen.js");
 
 
 /*
