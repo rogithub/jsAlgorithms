@@ -1,4 +1,3 @@
-let Stack = require("./stack");
+let congruentialGen = require("./algo/congruentialGen.js");
 
-let stack = new Stack();
-console.log(stack.isEmpty());
+console.log(congruentialGen(7, 5, 11));
