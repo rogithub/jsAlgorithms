@@ -1,13 +1,4 @@
-let lcg = require("./algo/fairLinearCongruentialGen.js");
-let gen = lcg(7, 5, 11, 50, 100);
+let pow = require("./algo/pow.js");
 
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
+
+console.log(pow(7, 6));
