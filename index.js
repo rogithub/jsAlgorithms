@@ -1,4 +1,4 @@
-let pow = require("./algo/pow.js");
+let heap = require("./algo/heap.js");
 
 
-console.log(pow(7, 6));
+console.log(heap([1, 2, 3, 4, 5, 6]));
