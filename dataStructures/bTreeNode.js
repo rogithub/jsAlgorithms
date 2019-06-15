@@ -27,6 +27,22 @@ let Node = function(data) {
 	fn(node);
     };
 
+    this.depthFirst = function(node, fn){
+	let that = this;
+	let children = [];
+	// enqueue
+	children.push(node);
+
+	while(children.length > 0) {
+	    // dequeue
+	    let child = children.shift();
+
+	    fn(child);
+	    if (child.left !== null) children.push(child.left);
+	    if (child.right !== null) children.push(child.right);	
+	}
+    }
+
     
 };
 

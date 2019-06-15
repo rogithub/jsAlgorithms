@@ -4,8 +4,8 @@ let assert = require ("assert");
 let Node = require("./../dataStructures/bTreeNode.js");
 
 describe("Binary Tree", function(){
-    describe("traversal preorder", function() {
-	it("Shoul traverse node, left, right", function(){
+    describe("traversal depth first", function() {
+	it("Shoul show top to bottom", function(){
 	    let root = new Node("D");
 	    let b = new Node("B");
 	    let a = new Node("A");
@@ -21,9 +21,9 @@ describe("Binary Tree", function(){
 	    let fn = (n) => letters.push(n.data);
 
 	    	    
-	    root.preorder(root, fn);
+	    root.depthFirst(root, fn);
 
-	    let expected = ["D","B","A","C","E"];
+	    let expected = ["D","B","E","A","C"];
 	    assert.deepEqual(letters, expected);
 	});
     });
