@@ -43,6 +43,19 @@ let Node = function(data) {
 	}
     }
 
+    // adds in sorted order
+    addNode = function(data) {
+	this = that;
+	// see if this value is smaller than ours.
+	if (data < that.data) {
+	    if (that.left === null) that.left = new Node(data);
+	    else left.addNode(data);
+	} else {
+	    if (that.right === null) that.right = new Node(data);
+	    else that.right.addNode(data);
+	}
+    }
+
     
 };
 
