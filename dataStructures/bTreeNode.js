@@ -45,7 +45,7 @@ let Node = function(data) {
 
     // adds in sorted order
     addNode = function(data) {
-	this = that;
+	const that = this;
 	// see if this value is smaller than ours.
 	if (data < that.data) {
 	    if (that.left === null) that.left = new Node(data);
