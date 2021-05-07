@@ -11,11 +11,11 @@ module.exports = (lists) => {
     max = max * 2; // 2 width ratio ( it can be increased by 2 multiples 2, 4, 8, etc.)
 
     for (let i = 0; i < lists.length; i++) {
-	for (let j = 0; j < lists[i].length; j++) {
-	    text += spaces(max) + print(lists[i][j]) + spaces(max);
-	}
-	max = max / 2;
-	text += l;
+        for (let j = 0; j < lists[i].length; j++) {
+            text += spaces(max) + print(lists[i][j]) + spaces(max);
+        }
+        max = max / 2;
+        text += l;
     }
 
     return text;
