@@ -1,6 +1,6 @@
 
 const { expect } = require('chai');
-let { build, traverse } = require("../algo/heap/heap");
+let { build, traverse } = require("../algo/heap");
 
 describe('Heap', () => {
     describe('build', () => {
