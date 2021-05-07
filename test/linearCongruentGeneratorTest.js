@@ -1,6 +1,6 @@
-"use strict";
 
-let assert = require ("assert");
+
+let assert = require("assert");
 let linConGen = require("./../algo/linearCongruentialGen.js");
 
 
@@ -25,15 +25,15 @@ Because X10 = X0 = 0, the sequence repeats.
 
 
 
-describe("Linear Congruential Generator", function(){
-    describe("usage", function() {
-	it("Should return a pseudo random array of values", function(){
-	    let expected = [ 0, 5, 7, 10, 9, 2, 8, 6, 3, 4, 0 ];
-	    let gen = linConGen(7, 5, 11);
-	    
-	    for (let i = 0; i < expected.length; i++) {
-		assert.equal(gen.next().value, expected[i])
-	    }
-	});
+describe("Linear Congruential Generator", function () {
+    describe("usage", function () {
+        it("Should return a pseudo random array of values", function () {
+            let expected = [0, 5, 7, 10, 9, 2, 8, 6, 3, 4, 0];
+            let gen = linConGen(7, 5, 11);
+
+            for (let i = 0; i < expected.length; i++) {
+                assert.equal(gen.next().value, expected[i])
+            }
+        });
     });
 });
