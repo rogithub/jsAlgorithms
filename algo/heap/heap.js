@@ -33,8 +33,8 @@
 // [2]       
 //
 
-
-module.exports = (arr) => {
+let inArray = (arr, index) => index < arr.length;
+let build = (arr) => {
     for (let i = 0; i < arr.length; i++) {
         while (i != 0) {
             let parent = Math.floor((i - 1) / 2);
@@ -55,6 +55,33 @@ module.exports = (arr) => {
 
     return arr;
 };
+
+let traverse = (arr, index, fn) => {
+    if (inArray(arr, index) === false) return;
+
+    let parent = Math.floor((index - 1) / 2);
+
+    fn({
+        node: {
+            i: index,
+            val: arr[index]
+        },
+        parent: index === 0 ? {
+            i: index,
+            val: arr[index]
+        } : {
+            i: parent,
+            val: arr[parent]
+        }
+    });
+
+    traverse(arr, index + 1, fn);
+};
+
+module.exports = {
+    build,
+    traverse
+}
 
 
 

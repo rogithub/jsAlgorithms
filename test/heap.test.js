@@ -1,31 +1,6 @@
 let assert = require('assert');
-const { should, expect } = require('chai');
-let toHeap = require("../algo/heap/heap");
-let printer = require("../utils/printTree");
-
-let inArray = (arr, index) => index < arr.length;
-
-let treeTraverse = (arr, index, fn) => {
-    if (inArray(arr, index) === false) return;
-
-    let parent = Math.floor((index - 1) / 2);
-
-    fn({
-        node: {
-            i: index,
-            val: arr[index]
-        },
-        parent: index === 0 ? {
-            i: index,
-            val: arr[index]
-        } : {
-            i: parent,
-            val: arr[parent]
-        }
-    });
-
-    treeTraverse(arr, index + 1, fn);
-};
+const { expect } = require('chai');
+let { build, traverse } = require("../algo/heap/heap");
 
 describe('Heap', () => {
     describe('build', () => {
@@ -42,14 +17,45 @@ describe('Heap', () => {
                                
             */
             let initial = [2, 5, 10, 12, 6, 8, 1, 3, 7, 9, 4, 11];
-            let heapified = toHeap(initial);
+            let heapified = build(initial);
 
             //printer(heapified);
 
-            treeTraverse(heapified, 0, ({ node, parent }) => {
+            traverse(heapified, 0, ({ node, parent }) => {
                 expect(parent.val).to.be.greaterThanOrEqual(node.val);
-                //console.log(`${parent.val} >= ${node.val}`);
             });
+        });
+    });
+
+    describe('sort', () => {
+        it('priority queue, sorted', () => {
+            let arr = [2, 5, 10, 12, 6, 8, 1, 3, 7, 9, 4, 11];
+            do {
+                let heapified = build(arr);
+                let max = arr.shift(heapified);
+
+                let maxAll = arr.reduce(function (a, b) {
+                    return Math.max(a, b);
+                });
+
+                expect(max).to.be.greaterThanOrEqual(maxAll);
+            } while (arr.length > 1)
+        });
+    });
+
+    describe('speed', () => {
+        it('priority queue, sorted', () => {
+            let arr = [2, 5, 10, 12, 6, 8, 1, 3, 7, 9, 4, 11];
+            do {
+                let heapified = build(arr);
+                let max = arr.shift(heapified);
+
+                let maxAll = arr.reduce(function (a, b) {
+                    return Math.max(a, b);
+                });
+
+                expect(max).to.be.greaterThanOrEqual(maxAll);
+            } while (arr.length > 1)
         });
     });
 });
