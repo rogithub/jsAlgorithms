@@ -61,7 +61,8 @@ let build = (arr) => {
 
 let inArray = (arr, index) => index < arr.length;
 
-let traverse = (arr, index, fn) => {
+let traverse = (arr, fn, index) => {
+    index = index || 0;
     if (inArray(arr, index) === false) return;
 
     let parent = Math.floor((index - 1) / 2);

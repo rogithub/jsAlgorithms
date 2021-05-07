@@ -21,7 +21,7 @@ describe('Heap', () => {
 
             //printer(heapified);
 
-            traverse(heapified, 0, ({ node, parent }) => {
+            traverse(heapified, ({ node, parent }) => {
                 expect(parent.val).to.be.greaterThanOrEqual(node.val);
             });
         });
