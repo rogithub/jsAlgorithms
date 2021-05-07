@@ -36,7 +36,6 @@
 // [2]       
 //
 
-let inArray = (arr, index) => index < arr.length;
 let build = (arr) => {
     for (let i = 0; i < arr.length; i++) {
         while (i != 0) {
@@ -58,6 +57,9 @@ let build = (arr) => {
 
     return arr;
 };
+
+
+let inArray = (arr, index) => index < arr.length;
 
 let traverse = (arr, index, fn) => {
     if (inArray(arr, index) === false) return;
