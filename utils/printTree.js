@@ -1,6 +1,7 @@
-"use strict";
+let treeToArrays = require('./treeToArrays');
 
-module.exports = (lists) => {
+module.exports = (arr) => {
+    let lists = treeToArrays(arr);
     let l = `\n`;
     let text = '';
     let spaces = (i) => Array(i).join(" ");
@@ -17,6 +18,8 @@ module.exports = (lists) => {
         max = max / 2;
         text += l;
     }
+
+    console.log(text);
 
     return text;
 }

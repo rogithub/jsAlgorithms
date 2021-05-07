@@ -1,7 +1,38 @@
-"use strict";
-
-// In a heap, the value of every node is at least as large as the values of its
+// Heaps are also priority Queues
+// ==============================
+// The value of every node is at least as large as the values of its
 // children.
+// The top element has the higher priority.
+
+// Steps to build
+// ============================================================================================
+// 1. Find max element A[i]
+// 2. Swap elements A[n] with A[i]
+//    now max element is ath the end of array
+// 3. Discard node A[n] from the heap by decrementing heap size
+// 4. New root may violate max-heap property, but children are max heaps (if so go to step 1)
+// ============================================================================================
+// Example: [4,2,1]
+// 
+//      [4]
+// [2]       [1]
+//
+// Swap max element to last index
+// 
+//      [1]
+// [2]       [4]
+//
+// Discard last index
+// 
+//      [1]
+// [2]       
+//
+// Repeat
+// 
+//      [1]
+// [2]       
+//
+
 
 module.exports = (arr) => {
     for (let i = 0; i < arr.length; i++) {
