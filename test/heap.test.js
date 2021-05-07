@@ -1,4 +1,4 @@
-let assert = require('assert');
+
 const { expect } = require('chai');
 let { build, traverse } = require("../algo/heap/heap");
 
