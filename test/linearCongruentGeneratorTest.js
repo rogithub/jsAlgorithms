@@ -32,7 +32,7 @@ describe("Linear Congruential Generator", function () {
             let gen = linConGen(7, 5, 11);
 
             for (let i = 0; i < expected.length; i++) {
-                assert.equal(gen.next().value, expected[i])
+                assert.strictEqual(gen.next().value, expected[i])
             }
         });
     });

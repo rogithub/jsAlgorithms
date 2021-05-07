@@ -17,10 +17,10 @@ describe("Stack", function () {
             stack.push(8);
 
             let pick = stack.peek();
-            assert.equal(pick, 8);
+            assert.strictEqual(pick, 8);
 
-            assert.equal(2, stack.size());
-            assert.equal(false, stack.isEmpty());
+            assert.strictEqual(2, stack.size());
+            assert.strictEqual(false, stack.isEmpty());
 
         });
     });
@@ -32,13 +32,13 @@ describe("Stack", function () {
             stack.push(5);
             stack.push(8);
             stack.push(11);
-            assert.equal(3, stack.size());
+            assert.strictEqual(3, stack.size());
 
             let eleven = stack.pop();
-            assert.equal(11, eleven);
+            assert.strictEqual(11, eleven);
 
             let eight = stack.pop();
-            assert.equal(8, eight);
+            assert.strictEqual(8, eight);
         });
     });
 });

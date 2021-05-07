@@ -23,7 +23,7 @@ describe("Binary Tree", function () {
             root.depthFirst(root, fn);
 
             let expected = ["D", "B", "E", "A", "C"];
-            assert.deepEqual(letters, expected);
+            assert.deepStrictEqual(letters, expected);
         });
     });
 

@@ -9,7 +9,7 @@ describe("Greatest common divisor", function () {
             let expected = 12;
             let actual = gcd(60, 24);
 
-            assert.equal(actual, expected);
+            assert.strictEqual(actual, expected);
         });
     });
 });

@@ -24,7 +24,7 @@ describe("Binary Tree", function () {
             root.preorder(root, fn);
 
             let expected = ["D", "B", "A", "C", "E"];
-            assert.deepEqual(letters, expected);
+            assert.deepStrictEqual(letters, expected);
         });
     });
 
