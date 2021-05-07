@@ -20,10 +20,10 @@ describe('Heap', () => {
             let initial = [2, 5, 10, 12, 6, 8, 1, 3, 7, 9, 4, 11];
             let heapified = build(initial);
 
-            printer(heapified);
+            //printer(heapified);
 
             traverse(heapified, ({ i, parent, left, right }) => {
-                console.log(`${i} parent=${heapified[parent]} current=${heapified[i]} left=${heapified[left]} right=${heapified[right]}`);
+                //console.log(`${i} parent=${heapified[parent]} current=${heapified[i]} left=${heapified[left]} right=${heapified[right]}`);
                 expect(heapified[parent]).to.be.greaterThanOrEqual(heapified[i]);
             });
         });
