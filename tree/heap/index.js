@@ -58,31 +58,8 @@ let build = (arr) => {
     return arr;
 };
 
-
-let inArray = (arr, index) => index < arr.length;
-let getParent = index => Math.floor((index - 1) / 2);
-
-let traverse = (arr, fn, index) => {
-    index = index || 0;
-    if (inArray(arr, index) === false) return;
-
-    let parent = getParent(index);
-    let amILeft = parent === getParent(index + 1);
-    let amIFirst = index === 0;
-
-    fn({
-        i: index,
-        parent: amIFirst ? 0 : parent,
-        left: amIFirst ? 0 : amILeft ? index : index - 1,
-        right: amIFirst ? 0 : amILeft ? index + 1 : index,
-    });
-
-    traverse(arr, fn, index + 1);
-};
-
 module.exports = {
-    build,
-    traverse
+    build
 }
 
 

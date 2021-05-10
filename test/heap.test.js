@@ -1,7 +1,7 @@
 
 const { expect } = require('chai');
-let { build, traverse } = require("../algo/heap");
-let printer = require('../treePrinter/index');
+let { build } = require("../tree/heap");
+let { printer, traverse } = require('../tree');
 
 describe('Heap', () => {
     describe('build', () => {
