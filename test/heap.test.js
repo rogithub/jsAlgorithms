@@ -1,7 +1,7 @@
 
 const { expect } = require('chai');
 let { build } = require("../tree/heap");
-let { printer, traverse } = require('../tree');
+let { printer, traverseForward } = require('../tree');
 
 describe('Heap', () => {
     describe('build', () => {
@@ -22,7 +22,7 @@ describe('Heap', () => {
 
             //printer(heapified);
 
-            traverse(heapified, ({ i, parent, left, right }) => {
+            traverseForward(heapified, ({ i, parent, left, right }) => {
                 //console.log(`${i} parent=${heapified[parent]} current=${heapified[i]} left=${heapified[left]} right=${heapified[right]}`);
                 expect(heapified[parent]).to.be.greaterThanOrEqual(heapified[i]);
             });
