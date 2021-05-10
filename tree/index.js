@@ -70,7 +70,7 @@ let traverseForward = (arr, fn, index) => {
         right: amIFirst ? 0 : amILeft ? index + 1 : index,
     });
 
-    traverseForward(arr, fn, index - 1);
+    traverseForward(arr, fn, index + 1);
 };
 
 let traverseBackward = (arr, fn, index) => {
@@ -88,7 +88,7 @@ let traverseBackward = (arr, fn, index) => {
         right: amIFirst ? 0 : amILeft ? index + 1 : index,
     });
 
-    traverseBackward(arr, fn, index + 1);
+    traverseBackward(arr, fn, index - 1);
 };
 
 module.exports = {
