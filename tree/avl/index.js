@@ -6,9 +6,6 @@ let add = (item) => {
         tree.push(item);
         return;
     }
-
-
-
 }
 
 
