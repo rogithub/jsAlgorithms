@@ -1,0 +1,39 @@
+// https://www.youtube.com/watch?v=FNeL18KsWPc
+* Tambien llamado (BINARY SEARCH TREE) BST
+
+  El ejemplo que dan (video anterior) es que
+  dada una pista de aterrizaje, se asume que solo puede
+  agendarse un aterrizaje en el tiempo si no hay 
+  otros aterrizajez sucediendo en +-(3 min).
+  Cada nodo guarda el tiempo de aterrizaje y se calcula
+  buscando un lugar apropiado para agendar un nuevo nodo (aterreizaje)
+ 
+
+** Rotation
+   Steps
+
+   1. Simple BST insert
+   2. Fix AVL property (balance)
+      from changed node up.
+
+      Suppose x is lowest node violating AVL.
+      Assume x.right is higher.
+ 
+      If x right child is balanced then
+      right rotate x.
+
+
+** Propiedades
+   Insert n items -> θ(nlgn)
+   In-order traversak -> θ(n)
+
+** Notas
+   Heaps permiten hacer dos operaciones
+   insert y delete min, rapidamente
+
+   AVL permiten hacer insert,delete y delete min,
+   y perminten buscar sucesores y predecesores rapido. 
+
+   Expresado en interfaces:
+   IPriorityQueye { Insert(x), Delete(x), Max(x) }
+   IAvl:IPriorityQueye { GetNext(), GetPrev() }

@@ -47,6 +47,14 @@ let print = (arr) => {
 let inArray = (arr, index) => index < arr.length;
 let getParent = index => Math.floor((index - 1) / 2);
 
+let getHeight = index => {
+    let counter = 1;
+    for (let i = index; i > 0; i = getParent(i)) {
+        counter++;
+    }
+    return counter;
+}
+
 let traverse = (arr, fn, index) => {
     index = index || 0;
     if (inArray(arr, index) === false) return;
@@ -69,6 +77,7 @@ module.exports = {
     inArray,
     getParent,
     traverse,
-    print
+    print,
+    getHeight
 }
 
