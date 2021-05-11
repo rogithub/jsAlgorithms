@@ -11,6 +11,8 @@ class BinarySearchTree {
         this.root = null;
     }
 
+    getRootNode = () => this.root;
+
     insert = (data) => {
         let n = new Node(data);
         if (this.root === null) {
@@ -41,6 +43,13 @@ class BinarySearchTree {
             this.insertNode(node.right, newNode);
             return;
         }
+    }
+
+    findMinNode = (node) => {
+        if (node.left === null) {
+            return node;
+        }
+        return this.findMinNode(node.left);
     }
 
     remove = (data) => {
@@ -85,4 +94,44 @@ class BinarySearchTree {
         node.right = this.removeNode(node.right, aux.data);
         return node;
     }
+
+    search = (node, data) => {
+        if (node === null) return null;
+
+        if (data < node.data)
+            return this.search(node.left, data);
+
+        if (data > node.data)
+            return this.search(node.right, data);
+
+        return node;
+    }
+
+    inOrder = (node, fn) => {
+        if (node === null) return;
+        this.inOrder(node.left, fn);
+        fn(node);
+        this.inOrder(node.right, fn);
+    }
+
+    preOrder = (node, fn) => {
+        if (node === null) return;
+        fn(node);
+        this.preOrder(node.left, fn);
+        this.preOrder(node.right, fn);
+    }
+
+    postOrder = (node, fn) => {
+        if (node === null) return;
+        this.postOrder(node.left, fn);
+        this.postOrder(node.right, fn);
+        fn(node);
+    }
+
 }
+
+module.exports = {
+    BinarySearchTree,
+    Node
+}
+
