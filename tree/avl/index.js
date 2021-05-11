@@ -44,9 +44,7 @@ class AVLTree {
 
         if (root === null) {
             root = node;
-        }
-
-        if (node.data < root.data) {
+        } else if (node.data < root.data) {
             // insert left
             root.left = this.insertNode(root.left, node);
 
@@ -59,7 +57,7 @@ class AVLTree {
                 }
             }
         } else if (node.data > root.data) {
-            // insert right
+            // insert right! riit,
             root.right = this.insertNode(root.right, node);
 
             // check for balance
