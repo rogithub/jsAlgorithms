@@ -16,7 +16,6 @@ describe('BST functions', () => {
             }
 
             let root = bst.getRootNode();
-            let min = bst.findMinNode(root);
             let max = -1;
 
             let sorted = [];
@@ -26,7 +25,8 @@ describe('BST functions', () => {
                 sorted.push(node.data);
             });
 
-            expect(min.data).to.be.eq(sorted[0]);
+            let minNode = bst.findMinNode(root);
+            expect(minNode.data).to.be.eq(sorted[0]);
 
         });
     });
