@@ -4,7 +4,7 @@ let { Node, AVLTree } = require('../tree/avl');
 
 let rnd = (max) => Math.floor(Math.random() * max);
 
-describe('BST functions', () => {
+describe('ALV functions', () => {
     describe('insert', () => {
         it('insert nodes', () => {
 
