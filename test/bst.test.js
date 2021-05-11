@@ -26,7 +26,7 @@ describe('BST functions', () => {
                 sorted.push(node.data);
             });
 
-            console.dir(sorted);
+            expect(min.data).to.be.eq(sorted[0]);
 
         });
     });
