@@ -19,15 +19,11 @@ class AVLTree {
         return this.findMinNode(node.left);
     }
 
-    getBalanceFactor = (root) => {
-        return this.getHeight(root.left) - this.getHeight(root.right);
-    }
+    getBalanceFactor = (root) => this.getHeight(root.left) - this.getHeight(root.right);
 
     getHeight = (root) => {
-        let height = -1;
-        if (root === null || typeof root === "undefined") return height;
-
-        return Math.max(this.getHeight(root.left), this.getHeight(root.right)) + 1;
+        return (root === null || root === undefined) ? - 1 :
+            (Math.max(this.getHeight(root.left), this.getHeight(root.right)) + 1);
     }
 
     insert = (data) => {
@@ -45,28 +41,20 @@ class AVLTree {
         if (root === null) {
             root = node;
         } else if (node.data < root.data) {
-            // insert left
+            // insert left!
             root.left = this.insertNode(root.left, node);
 
             // check for balance
             if (root.left !== null && this.getBalanceFactor(root) > 1) {
-                if (node.data > root.left.data) {
-                    root = rotationLL(root);
-                } else {
-                    root = rotationLR(root);
-                }
+                root = (node.data > root.left.data) ? rotationLL(root) : rotationLR(root);
             }
         } else if (node.data > root.data) {
-            // insert right! riit,
+            // insert right!
             root.right = this.insertNode(root.right, node);
 
             // check for balance
             if (root.right !== null && this.getBalanceFactor(root) < -1) {
-                if (node.data > root.right.data) {
-                    root = rotationRR(root);
-                } else {
-                    root = rotationRL(root);
-                }
+                root = (node.data > root.right.data) ? rotationRR(root) : rotationRL(root);
             }
 
         }
