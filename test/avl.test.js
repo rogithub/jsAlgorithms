@@ -28,6 +28,8 @@ describe('BST functions', () => {
             let minNode = bst.findMinNode(root);
             expect(minNode.data).to.be.eq(sorted[0]);
 
+            console.log(sorted);
+
         });
     });
 });
