@@ -11,6 +11,14 @@ class AVLTree {
         this.root = null;
     }
 
+    getRootNode = () => this.root;
+    findMinNode = (node) => {
+        if (node.left === null) {
+            return node;
+        }
+        return this.findMinNode(node.left);
+    }
+
     getBalanceFactor = (root) => {
         return this.getHeight(root.left) - this.getHeight(root.right);
     }
