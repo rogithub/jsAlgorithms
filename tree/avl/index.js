@@ -6,12 +6,21 @@ class Node {
     }
 }
 
-class BinarySearchTree {
+class AVLTree {
     constructor() {
         this.root = null;
     }
 
-    getRootNode = () => this.root;
+    getBalanceFactor = (root) => {
+        return this.getHeight(root.left) - this.getHeight(root.right);
+    }
+
+    getHeight = (root) => {
+        let height = -1;
+        if (root === null || typeof root === "undefined") return height;
+
+        return Math.max(this.getHeight(root.left), this.getHeight(root.right)) + 1;
+    }
 
     insert = (data) => {
         let n = new Node(data);
@@ -23,88 +32,40 @@ class BinarySearchTree {
         this.insertNode(this.root, n);
     }
 
-    insertNode = (node, newNode) => {
-        if (node.data === newNode.data) return; // already present
+    insertNode = (root, node) => {
 
-        if (newNode.data < node.data && node.left === null) {
-            node.left = newNode;
-            return;
-        }
-        if (newNode.data > node.data && node.right === null) {
-            node.right = newNode;
-            return;
+        if (root === null) {
+            root = node;
         }
 
-        if (newNode.data < node.data) {
-            this.insertNode(node.left, newNode);
-            return;
-        }
-        if (newNode.data > node.data) {
-            this.insertNode(node.right, newNode);
-            return;
-        }
-    }
+        if (node.data < root.data) {
+            // insert left
+            root.left = this.insertNode(root.left, node);
 
-    findMinNode = (node) => {
-        if (node.left === null) {
-            return node;
-        }
-        return this.findMinNode(node.left);
-    }
+            // check for balance
+            if (root.left !== null && this.getBalanceFactor(root) > 1) {
+                if (node.data > root.left.data) {
+                    root = rotationLL(root);
+                } else {
+                    root = rotationLR(root);
+                }
+            }
+        } else if (node.data > root.data) {
+            // insert right
+            root.right = this.insertNode(root.right, node);
 
-    remove = (data) => {
-        this.root = this.removeNode(this.root, data);
-    }
+            // check for balance
+            if (root.right !== null && this.getBalanceFactor(root) < -1) {
+                if (node.data > root.right.data) {
+                    root = rotationRR(root);
+                } else {
+                    root = rotationRL(root);
+                }
+            }
 
-    removeNode = (node, key) => {
-        if (node === null) return null;
-
-        // if data to be delete is less than
-        // roots data then mode to left subree
-        if (key < node.data) {
-            node.left = this.removeNode(node.left, key);
-            return node;
         }
 
-        if (key > node.data) {
-            node.right = this.remove(node.right, key);
-            return node;
-        }
-
-        if (node.left === null && node.right === null) {
-            node = null;
-            return node;
-        }
-
-        // one children
-        if (node.left === null) {
-            node = node.right;
-            return node;
-        }
-
-        if (node.right === null) {
-            node = node.left;
-            return node;
-        }
-
-        // two children
-        let tmp = this.findMinNode(node.right);
-        node.data = tmp.data;
-
-        node.right = this.removeNode(node.right, aux.data);
-        return node;
-    }
-
-    search = (node, data) => {
-        if (node === null) return null;
-
-        if (data < node.data)
-            return this.search(node.left, data);
-
-        if (data > node.data)
-            return this.search(node.right, data);
-
-        return node;
+        return root;
     }
 
     inOrder = (node, fn) => {
@@ -127,11 +88,34 @@ class BinarySearchTree {
         this.postOrder(node.right, fn);
         fn(node);
     }
+}
 
+rotationLL = (node) => {
+    let tmp = node.left;
+    node.left = tmp.right;
+    tmp.right = node;
+    return tmp;
+}
+
+rotationRR = (node) => {
+    let tmp = node.right;
+    node.right = tmp.left;
+    tmp.left = node;
+    return tmp;
+}
+
+rotationLR = (node) => {
+    node.left = rotationRR(node.left);
+    return rotationLL(node);
+}
+
+rotationRL = (node) => {
+    node.rigt = rotationLL(node.right);
+    return rotationRR(node);
 }
 
 module.exports = {
-    BinarySearchTree,
+    AVLTree,
     Node
 }
 
