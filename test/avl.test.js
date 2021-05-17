@@ -10,25 +10,19 @@ describe('ALV functions', () => {
 
             let bst = new AVLTree();
 
-            for (let i = 12; i > 0; i--) {
-                let random = rnd(100);
-                bst.insert(random);
-            }
+            bst.insert(1);
+            let r = bst.getRootNode();
+            expect(r.data).to.be.eq(1);
 
-            let root = bst.getRootNode();
-            let max = -1;
+            bst.insert(2);
+            expect(r.right.data).to.be.eq(2);
 
-            let sorted = [];
-            bst.inOrder(root, (node) => {
-                expect(max).to.be.lessThan(node.data);
-                max = node.data;
-                sorted.push(node.data);
-            });
-
-            let minNode = bst.findMinNode(root);
-            expect(minNode.data).to.be.eq(sorted[0]);
-
-            console.log(sorted);
+            // causes rotation
+            bst.insert(3);
+            r = bst.getRootNode();
+            expect(r.left.data).to.be.eq(1);
+            expect(r.data).to.be.eq(2);
+            expect(r.right.data).to.be.eq(3);
 
         });
     });

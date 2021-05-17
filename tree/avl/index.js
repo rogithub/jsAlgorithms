@@ -33,7 +33,7 @@ class AVLTree {
             return;
         }
 
-        this.insertNode(this.root, n);
+        this.root = this.insertNode(this.root, n);
     }
 
     insertNode = (root, node) => {
