@@ -34,46 +34,31 @@ class AVLTree {
         let n = new Node(data);
         if (this.root === null) {
             this.root = n;
-            //console.log(`Top ${n.data}`);
-            return;
+            return n;
         }
-        this.insertNode(this.root, n);
+        return this.insertNode(this.root, n);
     }
 
     insertNode = (root, node) => {
-        console.log(`root ${this.root.data} ${this.root.left ? this.root.left.data : 'IZQ'} ${this.root.right ? this.root.right.data : 'DER'}`);
-        console.log(`inserting ${node.data}`);
         if (root === null) {
-            console.log(`Top ${node.data}`);
             root = node;
         } else if (node.data < root.data) {
-            //console.log(`Left ${node.data}`);
             // insert left!
             root.left = this.insertNode(root.left, node);
 
             // check for balance
             if (root.left !== null && this.getBalanceFactor(root) > 1) {
-                console.log(`Rotating left`);
                 root = (node.data > root.left.data) ? rotationLL(root) : rotationLR(root);
             }
         } else if (node.data > root.data) {
-            //console.log(`Right ${node.data}`);
             // insert right!
             root.right = this.insertNode(root.right, node);
 
             // check for balance
             if (root.right !== null && this.getBalanceFactor(root) < -1) {
-                console.log(`BEFORE`);
-                console.dir(root);
                 root = (node.data > root.right.data) ? rotationRR(root) : rotationRL(root);
-                console.dir(root);
-
             }
-
         }
-
-        let n = node;
-        //console.log(`izq ${n.left ? n.left.data : 'nada'} top: ${n.data} der ${n.right ? n.right.data : 'nada'}`);
 
         return root;
     }

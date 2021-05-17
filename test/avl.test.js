@@ -18,7 +18,7 @@ describe('ALV functions', () => {
             expect(root.right.data).to.be.eq(2);
 
 
-            bst.insert(3);
+            root = bst.insert(3);
             console.dir(root.right);
         });
     });
